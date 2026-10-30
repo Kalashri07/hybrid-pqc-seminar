@@ -1,0 +1,37 @@
+{
+  "classical": {
+    "mean_ms": 0.25167576299969596,
+    "median_ms": 0.2310305000179369,
+    "stdev_ms": 0.05570150887316693,
+    "client_bytes": 65,
+    "server_bytes": 65,
+    "total_bytes": 130,
+    "peak_kib": 1.0263671875
+  },
+  "pqc": {
+    "mean_ms": 0.25619710400016515,
+    "median_ms": 0.21612499998013845,
+    "stdev_ms": 0.07631627725736505,
+    "client_bytes": 1184,
+    "server_bytes": 1088,
+    "total_bytes": 2272,
+    "peak_kib": 7.2939453125
+  },
+  "hybrid": {
+    "mean_ms": 0.4431008950006401,
+    "median_ms": 0.44041800001082265,
+    "stdev_ms": 0.05469392908479634,
+    "client_bytes": 1249,
+    "server_bytes": 1153,
+    "total_bytes": 2402,
+    "peak_kib": 10.41015625
+  },
+  "aes_gcm_mib_per_s": 2844.75290163511,
+  "primitives_ms": {
+    "ECDH keygen": 0.021850577999998677,
+    "ECDH exchange": 0.11094169099999363,
+    "ML-KEM keygen": 0.12970819299999903,
+    "ML-KEM encaps": 0.04220206900001244,
+    "ML-KEM decaps": 0.035075108999990334
+  }
+}

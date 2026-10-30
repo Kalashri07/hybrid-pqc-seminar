@@ -1,0 +1,22 @@
+TC01 [PASS] Run hybrid handshake; compare client and server keys
+      -> keys equal, len=32 B
+TC02 [PASS] Encrypt message with client key, decrypt with server key
+      -> plaintext recovered
+TC03 [PASS] Run 200 hybrid sessions and collect keys
+      -> 200 unique keys in 200 sessions
+TC04 [PASS] Run classical-only and PQC-only handshakes
+      -> classical and PQC modes both agree
+TC05 [PASS] Flip one bit of the ML-KEM ciphertext in transit
+      -> keys differ; AES-GCM rejects (InvalidTag)
+TC06 [PASS] Substitute the server ECDH public key
+      -> keys differ after ECDH key substitution
+TC07 [PASS] Flip one bit of the AES-GCM ciphertext
+      -> InvalidTag raised
+TC08 [PASS] Attacker knows ECDH secret (broken by quantum), not ML-KEM
+      -> key not recoverable from ECDH secret alone
+TC09 [PASS] Send an ECDH point that is not on the curve
+      -> invalid curve point rejected (ValueError)
+TC10 [PASS] Decrypt with different associated data
+      -> AAD mismatch rejected (InvalidTag)
+
+10/10 tests passed

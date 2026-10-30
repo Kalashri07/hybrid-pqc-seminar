@@ -1,0 +1,14 @@
+Handshakes per mode: 1000
+Mode        mean ms   median   stdev  C->S B  S->C B  total B  peak KiB
+classical     0.252    0.231   0.056      65      65      130       1.0
+pqc           0.256    0.216   0.076    1184    1088     2272       7.3
+hybrid        0.443    0.440   0.055    1249    1153     2402      10.4
+
+Per-primitive mean time (ms):
+  ECDH keygen   0.0219
+  ECDH exchange 0.1109
+  ML-KEM keygen 0.1297
+  ML-KEM encaps 0.0422
+  ML-KEM decaps 0.0351
+
+AES-256-GCM encrypt+decrypt throughput (1 MiB): 2845 MiB/s

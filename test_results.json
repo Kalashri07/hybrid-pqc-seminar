@@ -1,0 +1,72 @@
+[
+  {
+    "id": "TC01",
+    "action": "Run hybrid handshake; compare client and server keys",
+    "expected": "Both sides derive the same 32-byte key",
+    "actual": "keys equal, len=32 B",
+    "status": "Pass"
+  },
+  {
+    "id": "TC02",
+    "action": "Encrypt message with client key, decrypt with server key",
+    "expected": "Original plaintext recovered",
+    "actual": "plaintext recovered",
+    "status": "Pass"
+  },
+  {
+    "id": "TC03",
+    "action": "Run 200 hybrid sessions and collect keys",
+    "expected": "All session keys are unique",
+    "actual": "200 unique keys in 200 sessions",
+    "status": "Pass"
+  },
+  {
+    "id": "TC04",
+    "action": "Run classical-only and PQC-only handshakes",
+    "expected": "Keys agree in both modes",
+    "actual": "classical and PQC modes both agree",
+    "status": "Pass"
+  },
+  {
+    "id": "TC05",
+    "action": "Flip one bit of the ML-KEM ciphertext in transit",
+    "expected": "Keys differ; AES-GCM decryption fails",
+    "actual": "keys differ; AES-GCM rejects (InvalidTag)",
+    "status": "Pass"
+  },
+  {
+    "id": "TC06",
+    "action": "Substitute the server ECDH public key",
+    "expected": "Keys differ; no shared secret",
+    "actual": "keys differ after ECDH key substitution",
+    "status": "Pass"
+  },
+  {
+    "id": "TC07",
+    "action": "Flip one bit of the AES-GCM ciphertext",
+    "expected": "Authentication tag check fails",
+    "actual": "InvalidTag raised",
+    "status": "Pass"
+  },
+  {
+    "id": "TC08",
+    "action": "Attacker knows ECDH secret (broken by quantum), not ML-KEM",
+    "expected": "Hybrid session key still not recoverable",
+    "actual": "key not recoverable from ECDH secret alone",
+    "status": "Pass"
+  },
+  {
+    "id": "TC09",
+    "action": "Send an ECDH point that is not on the curve",
+    "expected": "Point rejected",
+    "actual": "invalid curve point rejected (ValueError)",
+    "status": "Pass"
+  },
+  {
+    "id": "TC10",
+    "action": "Decrypt with different associated data",
+    "expected": "Authentication fails",
+    "actual": "AAD mismatch rejected (InvalidTag)",
+    "status": "Pass"
+  }
+]
